@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def y(x):
+    return np.log(a)/np.log(2*x)
+A=11
+x=np.array([1,5,10,100])
+a=abs((np.exp(np.cos(x**A))*np.tan(x**2))/(A*x/2 + x**1.5))
+print(y(x))
+
+x = np.array([47, 122, 254, 353, 630]) #R
+y = np.array([0.3, 0.44, 0.66, 0.84, 1.33]) #d
+
+L = 100
+C = 0.000050
+def d(x):
+    return np.pi*x*(C/L)**0.5
+
+plt.figure(figsize = (15, 10))
+plt.errorbar(x, y, xerr=0.01, yerr=0.02,color = "red", marker = "o", label = "$d_{прак}$")
+plt.plot(x, d(x), color = "green", label = "$d_{теор}$")
+plt.xlabel(r"$R, Ом$", fontsize=16)
+plt.ylabel(r"$d$", fontsize=16)
+plt.legend(loc = "best", fontsize = 20)
+plt.grid()
+plt.show()
